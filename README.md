@@ -1,10 +1,7 @@
-# MoonBit Raylib Web Games (GitHub Pages)
+# raylib-moonbit-web-games
 
-This repository hosts static browser bundles generated from MoonBit + raylib examples.
+Generated static site for MoonBit + raylib web builds.
 
+- Total games: 115
 - Entry page: `index.html`
-- Game bundles: `games/<bundle-name>/`
-
-If GitHub Pages is enabled from `main` branch root, the site is available at:
-
-`https://<user>.github.io/<repo>/`
+- Full list: `GAME_LIST.md`
