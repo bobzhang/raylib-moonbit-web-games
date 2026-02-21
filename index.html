@@ -57,6 +57,37 @@
       margin-top: 14px;
     }
 
+    .controls-guide {
+      margin-top: 12px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: #0f1933;
+      padding: 10px 12px;
+    }
+
+    .controls-guide-title {
+      font-size: 14px;
+      color: var(--text);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .controls-guide-grid {
+      display: grid;
+      gap: 6px 10px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .controls-guide-grid code {
+      color: #d6e8ff;
+      font-family: "Cascadia Mono", "Consolas", "Menlo", monospace;
+      background: #132146;
+      border-radius: 6px;
+      padding: 1px 5px;
+    }
+
     .filters input {
       width: 100%;
       background: #0f1830;
@@ -127,6 +158,16 @@
       <div class="filters">
         <input id="search" type="search" placeholder="Filter games (e.g. tank, kof, diablo)" />
       </div>
+      <div class="controls-guide">
+        <div class="controls-guide-title">Mobile Touch Mapping</div>
+        <div class="controls-guide-grid">
+          <div><code>D-pad</code> => <code>W/A/S/D</code> + <code>Arrow Keys</code></div>
+          <div><code>A</code> => <code>J</code> + <code>Space</code></div>
+          <div><code>B</code> => <code>K</code> + <code>Enter</code></div>
+          <div><code>C</code> => <code>L</code> + <code>Shift</code></div>
+          <div><code>II</code> => <code>Esc</code> (menu/pause)</div>
+        </div>
+      </div>
     </section>
 
     <section class="games" id="games">
@@ -154,6 +195,10 @@
         <span class="game-id">raylib_arknights_endfield_2025_lite</span>
         <span class="play">Play</span>
       </a>
+      <a class="game-card" href="games/raylib_arknights_td_2020_lite/raylib_arknights_td_2020_lite.html" data-id="raylib_arknights_td_2020_lite">
+        <span class="game-id">raylib_arknights_td_2020_lite</span>
+        <span class="play">Play</span>
+      </a>
       <a class="game-card" href="games/raylib_armored_warriors_1994_lite/raylib_armored_warriors_1994_lite.html" data-id="raylib_armored_warriors_1994_lite">
         <span class="game-id">raylib_armored_warriors_1994_lite</span>
         <span class="play">Play</span>
@@ -166,6 +211,10 @@
         <span class="game-id">raylib_audition_online_2004_lite</span>
         <span class="play">Play</span>
       </a>
+      <a class="game-card" href="games/raylib_autochess_2019_lite/raylib_autochess_2019_lite.html" data-id="raylib_autochess_2019_lite">
+        <span class="game-id">raylib_autochess_2019_lite</span>
+        <span class="play">Play</span>
+      </a>
       <a class="game-card" href="games/raylib_avengers_1991_lite/raylib_avengers_1991_lite.html" data-id="raylib_avengers_1991_lite">
         <span class="game-id">raylib_avengers_1991_lite</span>
         <span class="play">Play</span>
@@ -174,8 +223,16 @@
         <span class="game-id">raylib_azur_lane_2017_lite</span>
         <span class="play">Play</span>
       </a>
+      <a class="game-card" href="games/raylib_baldurs_gate_3_2023_lite/raylib_baldurs_gate_3_2023_lite.html" data-id="raylib_baldurs_gate_3_2023_lite">
+        <span class="game-id">raylib_baldurs_gate_3_2023_lite</span>
+        <span class="play">Play</span>
+      </a>
       <a class="game-card" href="games/raylib_battle_circuit_1997_lite/raylib_battle_circuit_1997_lite.html" data-id="raylib_battle_circuit_1997_lite">
         <span class="game-id">raylib_battle_circuit_1997_lite</span>
+        <span class="play">Play</span>
+      </a>
+      <a class="game-card" href="games/raylib_binding_of_isaac_2011_lite/raylib_binding_of_isaac_2011_lite.html" data-id="raylib_binding_of_isaac_2011_lite">
+        <span class="game-id">raylib_binding_of_isaac_2011_lite</span>
         <span class="play">Play</span>
       </a>
       <a class="game-card" href="games/raylib_black_myth_wukong_2024_lite/raylib_black_myth_wukong_2024_lite.html" data-id="raylib_black_myth_wukong_2024_lite">
@@ -188,6 +245,10 @@
       </a>
       <a class="game-card" href="games/raylib_bloody_roar_1997_lite/raylib_bloody_roar_1997_lite.html" data-id="raylib_bloody_roar_1997_lite">
         <span class="game-id">raylib_bloody_roar_1997_lite</span>
+        <span class="play">Play</span>
+      </a>
+      <a class="game-card" href="games/raylib_broforce_2015_lite/raylib_broforce_2015_lite.html" data-id="raylib_broforce_2015_lite">
+        <span class="game-id">raylib_broforce_2015_lite</span>
         <span class="play">Play</span>
       </a>
       <a class="game-card" href="games/raylib_cadillacs_dinosaurs_1993_lite/raylib_cadillacs_dinosaurs_1993_lite.html" data-id="raylib_cadillacs_dinosaurs_1993_lite">
@@ -214,8 +275,16 @@
         <span class="game-id">raylib_crossfire_2007_lite</span>
         <span class="play">Play</span>
       </a>
+      <a class="game-card" href="games/raylib_cyberpunk_2077_2020_lite/raylib_cyberpunk_2077_2020_lite.html" data-id="raylib_cyberpunk_2077_2020_lite">
+        <span class="game-id">raylib_cyberpunk_2077_2020_lite</span>
+        <span class="play">Play</span>
+      </a>
       <a class="game-card" href="games/raylib_dark_souls_2011_lite/raylib_dark_souls_2011_lite.html" data-id="raylib_dark_souls_2011_lite">
         <span class="game-id">raylib_dark_souls_2011_lite</span>
+        <span class="play">Play</span>
+      </a>
+      <a class="game-card" href="games/raylib_dead_cells_2018_lite/raylib_dead_cells_2018_lite.html" data-id="raylib_dead_cells_2018_lite">
+        <span class="game-id">raylib_dead_cells_2018_lite</span>
         <span class="play">Play</span>
       </a>
       <a class="game-card" href="games/raylib_dead_or_alive_1996_lite/raylib_dead_or_alive_1996_lite.html" data-id="raylib_dead_or_alive_1996_lite">
@@ -238,8 +307,16 @@
         <span class="game-id">raylib_diablo_2_2000_lite</span>
         <span class="play">Play</span>
       </a>
+      <a class="game-card" href="games/raylib_diablo_3_2012_lite/raylib_diablo_3_2012_lite.html" data-id="raylib_diablo_3_2012_lite">
+        <span class="game-id">raylib_diablo_3_2012_lite</span>
+        <span class="play">Play</span>
+      </a>
       <a class="game-card" href="games/raylib_dino_crisis_1999_lite/raylib_dino_crisis_1999_lite.html" data-id="raylib_dino_crisis_1999_lite">
         <span class="game-id">raylib_dino_crisis_1999_lite</span>
+        <span class="play">Play</span>
+      </a>
+      <a class="game-card" href="games/raylib_dont_starve_2013_lite/raylib_dont_starve_2013_lite.html" data-id="raylib_dont_starve_2013_lite">
+        <span class="game-id">raylib_dont_starve_2013_lite</span>
         <span class="play">Play</span>
       </a>
       <a class="game-card" href="games/raylib_dota_allstars_2005_lite/raylib_dota_allstars_2005_lite.html" data-id="raylib_dota_allstars_2005_lite">
@@ -274,6 +351,10 @@
         <span class="game-id">raylib_elden_ring_2022_lite</span>
         <span class="play">Play</span>
       </a>
+      <a class="game-card" href="games/raylib_enter_the_gungeon_2016_lite/raylib_enter_the_gungeon_2016_lite.html" data-id="raylib_enter_the_gungeon_2016_lite">
+        <span class="game-id">raylib_enter_the_gungeon_2016_lite</span>
+        <span class="play">Play</span>
+      </a>
       <a class="game-card" href="games/raylib_fantasy_westward_journey_2003_lite/raylib_fantasy_westward_journey_2003_lite.html" data-id="raylib_fantasy_westward_journey_2003_lite">
         <span class="game-id">raylib_fantasy_westward_journey_2003_lite</span>
         <span class="play">Play</span>
@@ -292,6 +373,10 @@
       </a>
       <a class="game-card" href="games/raylib_fortnite_2017_lite/raylib_fortnite_2017_lite.html" data-id="raylib_fortnite_2017_lite">
         <span class="game-id">raylib_fortnite_2017_lite</span>
+        <span class="play">Play</span>
+      </a>
+      <a class="game-card" href="games/raylib_ftl_2012_lite/raylib_ftl_2012_lite.html" data-id="raylib_ftl_2012_lite">
+        <span class="game-id">raylib_ftl_2012_lite</span>
         <span class="play">Play</span>
       </a>
       <a class="game-card" href="games/raylib_genshin_impact_2020_lite/raylib_genshin_impact_2020_lite.html" data-id="raylib_genshin_impact_2020_lite">
@@ -334,6 +419,10 @@
         <span class="game-id">raylib_heroes_3_1999_lite</span>
         <span class="play">Play</span>
       </a>
+      <a class="game-card" href="games/raylib_hollow_knight_2017_lite/raylib_hollow_knight_2017_lite.html" data-id="raylib_hollow_knight_2017_lite">
+        <span class="game-id">raylib_hollow_knight_2017_lite</span>
+        <span class="play">Play</span>
+      </a>
       <a class="game-card" href="games/raylib_honkai_impact_3rd_2016_lite/raylib_honkai_impact_3rd_2016_lite.html" data-id="raylib_honkai_impact_3rd_2016_lite">
         <span class="game-id">raylib_honkai_impact_3rd_2016_lite</span>
         <span class="play">Play</span>
@@ -354,12 +443,24 @@
         <span class="game-id">raylib_hook_1992_lite</span>
         <span class="play">Play</span>
       </a>
+      <a class="game-card" href="games/raylib_hotline_miami_2012_lite/raylib_hotline_miami_2012_lite.html" data-id="raylib_hotline_miami_2012_lite">
+        <span class="game-id">raylib_hotline_miami_2012_lite</span>
+        <span class="play">Play</span>
+      </a>
       <a class="game-card" href="games/raylib_identity_v_2018_lite/raylib_identity_v_2018_lite.html" data-id="raylib_identity_v_2018_lite">
         <span class="game-id">raylib_identity_v_2018_lite</span>
         <span class="play">Play</span>
       </a>
+      <a class="game-card" href="games/raylib_into_the_breach_2018_lite/raylib_into_the_breach_2018_lite.html" data-id="raylib_into_the_breach_2018_lite">
+        <span class="game-id">raylib_into_the_breach_2018_lite</span>
+        <span class="play">Play</span>
+      </a>
       <a class="game-card" href="games/raylib_jinyong_heroes_1996_lite/raylib_jinyong_heroes_1996_lite.html" data-id="raylib_jinyong_heroes_1996_lite">
         <span class="game-id">raylib_jinyong_heroes_1996_lite</span>
+        <span class="play">Play</span>
+      </a>
+      <a class="game-card" href="games/raylib_journey_to_the_west_action_2024_lite/raylib_journey_to_the_west_action_2024_lite.html" data-id="raylib_journey_to_the_west_action_2024_lite">
+        <span class="game-id">raylib_journey_to_the_west_action_2024_lite</span>
         <span class="play">Play</span>
       </a>
       <a class="game-card" href="games/raylib_kart_rider_2004_lite/raylib_kart_rider_2004_lite.html" data-id="raylib_kart_rider_2004_lite">
@@ -410,6 +511,10 @@
         <span class="game-id">raylib_maplestory_2003_lite</span>
         <span class="play">Play</span>
       </a>
+      <a class="game-card" href="games/raylib_mario_kart_battle_2014_lite/raylib_mario_kart_battle_2014_lite.html" data-id="raylib_mario_kart_battle_2014_lite">
+        <span class="game-id">raylib_mario_kart_battle_2014_lite</span>
+        <span class="play">Play</span>
+      </a>
       <a class="game-card" href="games/raylib_mass_effect_2_2010_lite/raylib_mass_effect_2_2010_lite.html" data-id="raylib_mass_effect_2_2010_lite">
         <span class="game-id">raylib_mass_effect_2_2010_lite</span>
         <span class="play">Play</span>
@@ -432,6 +537,14 @@
       </a>
       <a class="game-card" href="games/raylib_minecraft_2011_lite/raylib_minecraft_2011_lite.html" data-id="raylib_minecraft_2011_lite">
         <span class="game-id">raylib_minecraft_2011_lite</span>
+        <span class="play">Play</span>
+      </a>
+      <a class="game-card" href="games/raylib_monster_hunter_arena_2018_lite/raylib_monster_hunter_arena_2018_lite.html" data-id="raylib_monster_hunter_arena_2018_lite">
+        <span class="game-id">raylib_monster_hunter_arena_2018_lite</span>
+        <span class="play">Play</span>
+      </a>
+      <a class="game-card" href="games/raylib_monster_hunter_world_2018_lite/raylib_monster_hunter_world_2018_lite.html" data-id="raylib_monster_hunter_world_2018_lite">
+        <span class="game-id">raylib_monster_hunter_world_2018_lite</span>
         <span class="play">Play</span>
       </a>
       <a class="game-card" href="games/raylib_mortal_kombat_2_1993_lite/raylib_mortal_kombat_2_1993_lite.html" data-id="raylib_mortal_kombat_2_1993_lite">
@@ -500,6 +613,10 @@
       </a>
       <a class="game-card" href="games/raylib_project_justice_2000_lite/raylib_project_justice_2000_lite.html" data-id="raylib_project_justice_2000_lite">
         <span class="game-id">raylib_project_justice_2000_lite</span>
+        <span class="play">Play</span>
+      </a>
+      <a class="game-card" href="games/raylib_pubg_2017_lite/raylib_pubg_2017_lite.html" data-id="raylib_pubg_2017_lite">
+        <span class="game-id">raylib_pubg_2017_lite</span>
         <span class="play">Play</span>
       </a>
       <a class="game-card" href="games/raylib_pubg_mobile_2018_lite/raylib_pubg_mobile_2018_lite.html" data-id="raylib_pubg_mobile_2018_lite">
@@ -574,6 +691,10 @@
         <span class="game-id">raylib_skyrim_2011_lite</span>
         <span class="play">Play</span>
       </a>
+      <a class="game-card" href="games/raylib_slay_the_spire_2019_lite/raylib_slay_the_spire_2019_lite.html" data-id="raylib_slay_the_spire_2019_lite">
+        <span class="game-id">raylib_slay_the_spire_2019_lite</span>
+        <span class="play">Play</span>
+      </a>
       <a class="game-card" href="games/raylib_snow_bros_1990_lite/raylib_snow_bros_1990_lite.html" data-id="raylib_snow_bros_1990_lite">
         <span class="game-id">raylib_snow_bros_1990_lite</span>
         <span class="play">Play</span>
@@ -588,6 +709,10 @@
       </a>
       <a class="game-card" href="games/raylib_starcraft_bw_1998_lite/raylib_starcraft_bw_1998_lite.html" data-id="raylib_starcraft_bw_1998_lite">
         <span class="game-id">raylib_starcraft_bw_1998_lite</span>
+        <span class="play">Play</span>
+      </a>
+      <a class="game-card" href="games/raylib_stardew_valley_2016_lite/raylib_stardew_valley_2016_lite.html" data-id="raylib_stardew_valley_2016_lite">
+        <span class="game-id">raylib_stardew_valley_2016_lite</span>
         <span class="play">Play</span>
       </a>
       <a class="game-card" href="games/raylib_stone_age_1999_lite/raylib_stone_age_1999_lite.html" data-id="raylib_stone_age_1999_lite">
@@ -626,6 +751,10 @@
         <span class="game-id">raylib_tekken_3_1997_lite</span>
         <span class="play">Play</span>
       </a>
+      <a class="game-card" href="games/raylib_terraria_2011_lite/raylib_terraria_2011_lite.html" data-id="raylib_terraria_2011_lite">
+        <span class="game-id">raylib_terraria_2011_lite</span>
+        <span class="play">Play</span>
+      </a>
       <a class="game-card" href="games/raylib_the_simpsons_1991_lite/raylib_the_simpsons_1991_lite.html" data-id="raylib_the_simpsons_1991_lite">
         <span class="game-id">raylib_the_simpsons_1991_lite</span>
         <span class="play">Play</span>
@@ -640,6 +769,10 @@
       </a>
       <a class="game-card" href="games/raylib_three_kingdoms_heroes_2_1999_lite/raylib_three_kingdoms_heroes_2_1999_lite.html" data-id="raylib_three_kingdoms_heroes_2_1999_lite">
         <span class="game-id">raylib_three_kingdoms_heroes_2_1999_lite</span>
+        <span class="play">Play</span>
+      </a>
+      <a class="game-card" href="games/raylib_three_kingdoms_tactics_2019_lite/raylib_three_kingdoms_tactics_2019_lite.html" data-id="raylib_three_kingdoms_tactics_2019_lite">
+        <span class="game-id">raylib_three_kingdoms_tactics_2019_lite</span>
         <span class="play">Play</span>
       </a>
       <a class="game-card" href="games/raylib_tian_long_ba_bu_2007_lite/raylib_tian_long_ba_bu_2007_lite.html" data-id="raylib_tian_long_ba_bu_2007_lite">
@@ -660,6 +793,10 @@
       </a>
       <a class="game-card" href="games/raylib_valorant_2020_lite/raylib_valorant_2020_lite.html" data-id="raylib_valorant_2020_lite">
         <span class="game-id">raylib_valorant_2020_lite</span>
+        <span class="play">Play</span>
+      </a>
+      <a class="game-card" href="games/raylib_vampire_survivors_2022_lite/raylib_vampire_survivors_2022_lite.html" data-id="raylib_vampire_survivors_2022_lite">
+        <span class="game-id">raylib_vampire_survivors_2022_lite</span>
         <span class="play">Play</span>
       </a>
       <a class="game-card" href="games/raylib_vendetta_1991_lite/raylib_vendetta_1991_lite.html" data-id="raylib_vendetta_1991_lite">
@@ -690,6 +827,10 @@
         <span class="game-id">raylib_world_of_warcraft_2004_lite</span>
         <span class="play">Play</span>
       </a>
+      <a class="game-card" href="games/raylib_worms_1995_lite/raylib_worms_1995_lite.html" data-id="raylib_worms_1995_lite">
+        <span class="game-id">raylib_worms_1995_lite</span>
+        <span class="play">Play</span>
+      </a>
       <a class="game-card" href="games/raylib_wuthering_waves_2024_lite/raylib_wuthering_waves_2024_lite.html" data-id="raylib_wuthering_waves_2024_lite">
         <span class="game-id">raylib_wuthering_waves_2024_lite</span>
         <span class="play">Play</span>
@@ -708,6 +849,30 @@
       </a>
       <a class="game-card" href="games/raylib_zhengtu_2006_lite/raylib_zhengtu_2006_lite.html" data-id="raylib_zhengtu_2006_lite">
         <span class="game-id">raylib_zhengtu_2006_lite</span>
+        <span class="play">Play</span>
+      </a>
+      <a class="game-card" href="games/tank1990-asyncify-test/raylib_tank_1990.html" data-id="tank1990-asyncify-test">
+        <span class="game-id">tank1990-asyncify-test</span>
+        <span class="play">Play</span>
+      </a>
+      <a class="game-card" href="games/tank1990-asyncify-webgl1/raylib_tank_1990.html" data-id="tank1990-asyncify-webgl1">
+        <span class="game-id">tank1990-asyncify-webgl1</span>
+        <span class="play">Play</span>
+      </a>
+      <a class="game-card" href="games/tank1990-debug/raylib_tank_1990.html" data-id="tank1990-debug">
+        <span class="game-id">tank1990-debug</span>
+        <span class="play">Play</span>
+      </a>
+      <a class="game-card" href="games/tank1990-debug2/raylib_tank_1990.html" data-id="tank1990-debug2">
+        <span class="game-id">tank1990-debug2</span>
+        <span class="play">Play</span>
+      </a>
+      <a class="game-card" href="games/tank1990-prototype/raylib_tank_1990.html" data-id="tank1990-prototype">
+        <span class="game-id">tank1990-prototype</span>
+        <span class="play">Play</span>
+      </a>
+      <a class="game-card" href="games/tank1990-webgl1test/raylib_tank_1990.html" data-id="tank1990-webgl1test">
+        <span class="game-id">tank1990-webgl1test</span>
         <span class="play">Play</span>
       </a>
     </section>
