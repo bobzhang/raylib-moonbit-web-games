@@ -1,6 +1,6 @@
 # Raylib MoonBit Web Games
 
-Total games: 176
+Total games: 170
 
 - [raylib_age_of_empires_1997_lite](games/raylib_age_of_empires_1997_lite/raylib_age_of_empires_1997_lite.html)
 - [raylib_age_of_empires_2_1999_lite](games/raylib_age_of_empires_2_1999_lite/raylib_age_of_empires_2_1999_lite.html)
@@ -172,9 +172,3 @@ Total games: 176
 - [raylib_xuan_yuan_sword_3_1999_lite](games/raylib_xuan_yuan_sword_3_1999_lite/raylib_xuan_yuan_sword_3_1999_lite.html)
 - [raylib_zenless_zone_zero_2024_lite](games/raylib_zenless_zone_zero_2024_lite/raylib_zenless_zone_zero_2024_lite.html)
 - [raylib_zhengtu_2006_lite](games/raylib_zhengtu_2006_lite/raylib_zhengtu_2006_lite.html)
-- [tank1990-asyncify-test](games/tank1990-asyncify-test/raylib_tank_1990.html)
-- [tank1990-asyncify-webgl1](games/tank1990-asyncify-webgl1/raylib_tank_1990.html)
-- [tank1990-debug](games/tank1990-debug/raylib_tank_1990.html)
-- [tank1990-debug2](games/tank1990-debug2/raylib_tank_1990.html)
-- [tank1990-prototype](games/tank1990-prototype/raylib_tank_1990.html)
-- [tank1990-webgl1test](games/tank1990-webgl1test/raylib_tank_1990.html)
