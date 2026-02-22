@@ -1,6 +1,6 @@
 # Raylib MoonBit Web Games
 
-Total games: 147
+Total games: 149
 
 - [raylib_abyss_signal_runner_2026](games/raylib_abyss_signal_runner_2026/raylib_abyss_signal_runner_2026.html)
 - [raylib_aftershock_rescue_convoy_2026](games/raylib_aftershock_rescue_convoy_2026/raylib_aftershock_rescue_convoy_2026.html)
@@ -58,6 +58,7 @@ Total games: 147
 - [raylib_hotpot_empire_rush_2026](games/raylib_hotpot_empire_rush_2026/raylib_hotpot_empire_rush_2026.html)
 - [raylib_ice_fishing_blitz_2026](games/raylib_ice_fishing_blitz_2026/raylib_ice_fishing_blitz_2026.html)
 - [raylib_icebreaker_convoy_command_2026](games/raylib_icebreaker_convoy_command_2026/raylib_icebreaker_convoy_command_2026.html)
+- [raylib_ink_scroll_detective_2026](games/raylib_ink_scroll_detective_2026/raylib_ink_scroll_detective_2026.html)
 - [raylib_jade_temple_bellkeeper_2026](games/raylib_jade_temple_bellkeeper_2026/raylib_jade_temple_bellkeeper_2026.html)
 - [raylib_jetpack_cavern_rush_2026](games/raylib_jetpack_cavern_rush_2026/raylib_jetpack_cavern_rush_2026.html)
 - [raylib_lighthouse_supply_run_2026](games/raylib_lighthouse_supply_run_2026/raylib_lighthouse_supply_run_2026.html)
@@ -74,6 +75,7 @@ Total games: 147
 - [raylib_mine_cart_mayhem_2026](games/raylib_mine_cart_mayhem_2026/raylib_mine_cart_mayhem_2026.html)
 - [raylib_minesweeper_neon_ops_2026](games/raylib_minesweeper_neon_ops_2026/raylib_minesweeper_neon_ops_2026.html)
 - [raylib_monsoon_bridge_rescue_2026](games/raylib_monsoon_bridge_rescue_2026/raylib_monsoon_bridge_rescue_2026.html)
+- [raylib_moon_gate_defense_2026](games/raylib_moon_gate_defense_2026/raylib_moon_gate_defense_2026.html)
 - [raylib_mountain_bike_downhill_2026](games/raylib_mountain_bike_downhill_2026/raylib_mountain_bike_downhill_2026.html)
 - [raylib_museum_heist_puzzle_2026](games/raylib_museum_heist_puzzle_2026/raylib_museum_heist_puzzle_2026.html)
 - [raylib_neon_2048_storm_2026](games/raylib_neon_2048_storm_2026/raylib_neon_2048_storm_2026.html)
