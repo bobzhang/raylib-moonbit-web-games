@@ -1,6 +1,6 @@
 # Raylib MoonBit Web Games
 
-Total games: 149
+Total games: 151
 
 - [raylib_abyss_signal_runner_2026](games/raylib_abyss_signal_runner_2026/raylib_abyss_signal_runner_2026.html)
 - [raylib_aftershock_rescue_convoy_2026](games/raylib_aftershock_rescue_convoy_2026/raylib_aftershock_rescue_convoy_2026.html)
@@ -13,6 +13,7 @@ Total games: 149
 - [raylib_arctic_signal_relay_2026](games/raylib_arctic_signal_relay_2026/raylib_arctic_signal_relay_2026.html)
 - [raylib_asteroid_salvage_2026](games/raylib_asteroid_salvage_2026/raylib_asteroid_salvage_2026.html)
 - [raylib_auto_chess_micro_2026](games/raylib_auto_chess_micro_2026/raylib_auto_chess_micro_2026.html)
+- [raylib_bamboo_forest_sentinel_2026](games/raylib_bamboo_forest_sentinel_2026/raylib_bamboo_forest_sentinel_2026.html)
 - [raylib_battle_kart_arena_2026](games/raylib_battle_kart_arena_2026/raylib_battle_kart_arena_2026.html)
 - [raylib_bomber_grid_2026](games/raylib_bomber_grid_2026/raylib_bomber_grid_2026.html)
 - [raylib_bowling_alley_2026](games/raylib_bowling_alley_2026/raylib_bowling_alley_2026.html)
@@ -134,6 +135,7 @@ Total games: 149
 - [raylib_submarine_sonar_hunt_2026](games/raylib_submarine_sonar_hunt_2026/raylib_submarine_sonar_hunt_2026.html)
 - [raylib_subway_signal_saboteur_2026](games/raylib_subway_signal_saboteur_2026/raylib_subway_signal_saboteur_2026.html)
 - [raylib_tank_1990](games/raylib_tank_1990/raylib_tank_1990.html)
+- [raylib_tea_mountain_express_2026](games/raylib_tea_mountain_express_2026/raylib_tea_mountain_express_2026.html)
 - [raylib_teahouse_midnight_service_2026](games/raylib_teahouse_midnight_service_2026/raylib_teahouse_midnight_service_2026.html)
 - [raylib_temple_relic_run_2026](games/raylib_temple_relic_run_2026/raylib_temple_relic_run_2026.html)
 - [raylib_tetris_meteor_fall_2026](games/raylib_tetris_meteor_fall_2026/raylib_tetris_meteor_fall_2026.html)
