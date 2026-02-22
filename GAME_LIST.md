@@ -1,6 +1,6 @@
 # Raylib MoonBit Web Games
 
-Total games: 130
+Total games: 131
 
 - [raylib_abyss_signal_runner_2026](games/raylib_abyss_signal_runner_2026/raylib_abyss_signal_runner_2026.html)
 - [raylib_aftershock_rescue_convoy_2026](games/raylib_aftershock_rescue_convoy_2026/raylib_aftershock_rescue_convoy_2026.html)
@@ -15,6 +15,7 @@ Total games: 130
 - [raylib_bomber_grid_2026](games/raylib_bomber_grid_2026/raylib_bomber_grid_2026.html)
 - [raylib_bowling_alley_2026](games/raylib_bowling_alley_2026/raylib_bowling_alley_2026.html)
 - [raylib_breakout_lab_2026](games/raylib_breakout_lab_2026/raylib_breakout_lab_2026.html)
+- [raylib_candy_crush_2026](games/raylib_candy_crush_2026/raylib_candy_crush_2026.html)
 - [raylib_card_duel_2026](games/raylib_card_duel_2026/raylib_card_duel_2026.html)
 - [raylib_castle_siege_artillery_2026](games/raylib_castle_siege_artillery_2026/raylib_castle_siege_artillery_2026.html)
 - [raylib_celestial_kite_festival_2026](games/raylib_celestial_kite_festival_2026/raylib_celestial_kite_festival_2026.html)
