@@ -1,6 +1,6 @@
 # Raylib MoonBit Web Games
 
-Total games: 131
+Total games: 133
 
 - [raylib_abyss_signal_runner_2026](games/raylib_abyss_signal_runner_2026/raylib_abyss_signal_runner_2026.html)
 - [raylib_aftershock_rescue_convoy_2026](games/raylib_aftershock_rescue_convoy_2026/raylib_aftershock_rescue_convoy_2026.html)
@@ -68,6 +68,7 @@ Total games: 131
 - [raylib_minesweeper_neon_ops_2026](games/raylib_minesweeper_neon_ops_2026/raylib_minesweeper_neon_ops_2026.html)
 - [raylib_monsoon_bridge_rescue_2026](games/raylib_monsoon_bridge_rescue_2026/raylib_monsoon_bridge_rescue_2026.html)
 - [raylib_mountain_bike_downhill_2026](games/raylib_mountain_bike_downhill_2026/raylib_mountain_bike_downhill_2026.html)
+- [raylib_museum_heist_puzzle_2026](games/raylib_museum_heist_puzzle_2026/raylib_museum_heist_puzzle_2026.html)
 - [raylib_neon_2048_storm_2026](games/raylib_neon_2048_storm_2026/raylib_neon_2048_storm_2026.html)
 - [raylib_neon_air_hockey_2026](games/raylib_neon_air_hockey_2026/raylib_neon_air_hockey_2026.html)
 - [raylib_neon_drift_bounty_2026](games/raylib_neon_drift_bounty_2026/raylib_neon_drift_bounty_2026.html)
@@ -116,6 +117,7 @@ Total games: 131
 - [raylib_stealth_heist_2026](games/raylib_stealth_heist_2026/raylib_stealth_heist_2026.html)
 - [raylib_street_basketball_duel_2026](games/raylib_street_basketball_duel_2026/raylib_street_basketball_duel_2026.html)
 - [raylib_submarine_hunter_2026](games/raylib_submarine_hunter_2026/raylib_submarine_hunter_2026.html)
+- [raylib_submarine_sonar_hunt_2026](games/raylib_submarine_sonar_hunt_2026/raylib_submarine_sonar_hunt_2026.html)
 - [raylib_subway_signal_saboteur_2026](games/raylib_subway_signal_saboteur_2026/raylib_subway_signal_saboteur_2026.html)
 - [raylib_tank_1990](games/raylib_tank_1990/raylib_tank_1990.html)
 - [raylib_teahouse_midnight_service_2026](games/raylib_teahouse_midnight_service_2026/raylib_teahouse_midnight_service_2026.html)
