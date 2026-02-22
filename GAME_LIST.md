@@ -1,6 +1,6 @@
 # Raylib MoonBit Web Games
 
-Total games: 137
+Total games: 139
 
 - [raylib_abyss_signal_runner_2026](games/raylib_abyss_signal_runner_2026/raylib_abyss_signal_runner_2026.html)
 - [raylib_aftershock_rescue_convoy_2026](games/raylib_aftershock_rescue_convoy_2026/raylib_aftershock_rescue_convoy_2026.html)
@@ -37,6 +37,7 @@ Total games: 137
 - [raylib_drift_police_chase_2026](games/raylib_drift_police_chase_2026/raylib_drift_police_chase_2026.html)
 - [raylib_drone_delivery_2026](games/raylib_drone_delivery_2026/raylib_drone_delivery_2026.html)
 - [raylib_drone_show_director_2026](games/raylib_drone_show_director_2026/raylib_drone_show_director_2026.html)
+- [raylib_dungeon_courier_escape_2026](games/raylib_dungeon_courier_escape_2026/raylib_dungeon_courier_escape_2026.html)
 - [raylib_fighter_97_lite](games/raylib_fighter_97_lite/raylib_fighter_97_lite.html)
 - [raylib_firefighting_command_2026](games/raylib_firefighting_command_2026/raylib_firefighting_command_2026.html)
 - [raylib_fishing_tycoon_2026](games/raylib_fishing_tycoon_2026/raylib_fishing_tycoon_2026.html)
@@ -78,6 +79,7 @@ Total games: 137
 - [raylib_neon_rooftop_rush_2026](games/raylib_neon_rooftop_rush_2026/raylib_neon_rooftop_rush_2026.html)
 - [raylib_neon_subway_sprint_2026](games/raylib_neon_subway_sprint_2026/raylib_neon_subway_sprint_2026.html)
 - [raylib_neon_taxi_rush_2026](games/raylib_neon_taxi_rush_2026/raylib_neon_taxi_rush_2026.html)
+- [raylib_night_market_chef_duel_2026](games/raylib_night_market_chef_duel_2026/raylib_night_market_chef_duel_2026.html)
 - [raylib_ninja_rooftop_chase_2026](games/raylib_ninja_rooftop_chase_2026/raylib_ninja_rooftop_chase_2026.html)
 - [raylib_orbital_salvage_ops_2026](games/raylib_orbital_salvage_ops_2026/raylib_orbital_salvage_ops_2026.html)
 - [raylib_orbital_shield_command_2026](games/raylib_orbital_shield_command_2026/raylib_orbital_shield_command_2026.html)
