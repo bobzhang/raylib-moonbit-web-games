@@ -1,6 +1,6 @@
 # Raylib MoonBit Web Games
 
-Total games: 126
+Total games: 127
 
 - [raylib_abyss_signal_runner_2026](games/raylib_abyss_signal_runner_2026/raylib_abyss_signal_runner_2026.html)
 - [raylib_aftershock_rescue_convoy_2026](games/raylib_aftershock_rescue_convoy_2026/raylib_aftershock_rescue_convoy_2026.html)
@@ -80,6 +80,7 @@ Total games: 126
 - [raylib_pinball_workshop_2026](games/raylib_pinball_workshop_2026/raylib_pinball_workshop_2026.html)
 - [raylib_pizza_delivery_mayhem_2026](games/raylib_pizza_delivery_mayhem_2026/raylib_pizza_delivery_mayhem_2026.html)
 - [raylib_platformer_precision_2026](games/raylib_platformer_precision_2026/raylib_platformer_precision_2026.html)
+- [raylib_polar_train_heist_2026](games/raylib_polar_train_heist_2026/raylib_polar_train_heist_2026.html)
 - [raylib_port_logistics_empire_2026](games/raylib_port_logistics_empire_2026/raylib_port_logistics_empire_2026.html)
 - [raylib_portal_billiards_2026](games/raylib_portal_billiards_2026/raylib_portal_billiards_2026.html)
 - [raylib_portal_blackout_escape_2026](games/raylib_portal_blackout_escape_2026/raylib_portal_blackout_escape_2026.html)
