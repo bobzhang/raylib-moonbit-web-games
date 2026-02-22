@@ -1,6 +1,6 @@
 # Raylib MoonBit Web Games
 
-Total games: 133
+Total games: 135
 
 - [raylib_abyss_signal_runner_2026](games/raylib_abyss_signal_runner_2026/raylib_abyss_signal_runner_2026.html)
 - [raylib_aftershock_rescue_convoy_2026](games/raylib_aftershock_rescue_convoy_2026/raylib_aftershock_rescue_convoy_2026.html)
@@ -108,6 +108,7 @@ Total games: 133
 - [raylib_skyforge_mining_convoy_2026](games/raylib_skyforge_mining_convoy_2026/raylib_skyforge_mining_convoy_2026.html)
 - [raylib_skyhook_cargo_rescue_2026](games/raylib_skyhook_cargo_rescue_2026/raylib_skyhook_cargo_rescue_2026.html)
 - [raylib_skyline_fire_rescue_2026](games/raylib_skyline_fire_rescue_2026/raylib_skyline_fire_rescue_2026.html)
+- [raylib_skyline_parkour_trials_2026](games/raylib_skyline_parkour_trials_2026/raylib_skyline_parkour_trials_2026.html)
 - [raylib_snake_battle_arena_2026](games/raylib_snake_battle_arena_2026/raylib_snake_battle_arena_2026.html)
 - [raylib_snowboard_slalom_2026](games/raylib_snowboard_slalom_2026/raylib_snowboard_slalom_2026.html)
 - [raylib_sokoban_warehouse_master_2026](games/raylib_sokoban_warehouse_master_2026/raylib_sokoban_warehouse_master_2026.html)
@@ -132,6 +133,7 @@ Total games: 133
 - [raylib_urban_flood_evacuation_2026](games/raylib_urban_flood_evacuation_2026/raylib_urban_flood_evacuation_2026.html)
 - [raylib_void_anchor_raid_2026](games/raylib_void_anchor_raid_2026/raylib_void_anchor_raid_2026.html)
 - [raylib_volcano_airlift_2026](games/raylib_volcano_airlift_2026/raylib_volcano_airlift_2026.html)
+- [raylib_volcano_rescue_ops_2026](games/raylib_volcano_rescue_ops_2026/raylib_volcano_rescue_ops_2026.html)
 - [raylib_warehouse_forklift_2026](games/raylib_warehouse_forklift_2026/raylib_warehouse_forklift_2026.html)
 - [raylib_wildfire_airlift_command_2026](games/raylib_wildfire_airlift_command_2026/raylib_wildfire_airlift_command_2026.html)
 - [raylib_zombie_safehouse_siege_2026](games/raylib_zombie_safehouse_siege_2026/raylib_zombie_safehouse_siege_2026.html)
