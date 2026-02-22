@@ -1,6 +1,6 @@
 # Raylib MoonBit Web Games
 
-Total games: 143
+Total games: 145
 
 - [raylib_abyss_signal_runner_2026](games/raylib_abyss_signal_runner_2026/raylib_abyss_signal_runner_2026.html)
 - [raylib_aftershock_rescue_convoy_2026](games/raylib_aftershock_rescue_convoy_2026/raylib_aftershock_rescue_convoy_2026.html)
@@ -110,6 +110,8 @@ Total games: 143
 - [raylib_rooftop_volleyball_2026](games/raylib_rooftop_volleyball_2026/raylib_rooftop_volleyball_2026.html)
 - [raylib_rts_skirmish_2026](games/raylib_rts_skirmish_2026/raylib_rts_skirmish_2026.html)
 - [raylib_rush_hour_escape_2026](games/raylib_rush_hour_escape_2026/raylib_rush_hour_escape_2026.html)
+- [raylib_shadow_puppet_theater_2026](games/raylib_shadow_puppet_theater_2026/raylib_shadow_puppet_theater_2026.html)
+- [raylib_silkroad_caravan_guard_2026](games/raylib_silkroad_caravan_guard_2026/raylib_silkroad_caravan_guard_2026.html)
 - [raylib_ski_rescue_2026](games/raylib_ski_rescue_2026/raylib_ski_rescue_2026.html)
 - [raylib_sky_convoy_defense_2026](games/raylib_sky_convoy_defense_2026/raylib_sky_convoy_defense_2026.html)
 - [raylib_skyforge_mining_convoy_2026](games/raylib_skyforge_mining_convoy_2026/raylib_skyforge_mining_convoy_2026.html)
