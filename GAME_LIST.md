@@ -1,6 +1,6 @@
 # Raylib MoonBit Web Games
 
-Total games: 116
+Total games: 120
 
 - [raylib_aftershock_rescue_convoy_2026](games/raylib_aftershock_rescue_convoy_2026/raylib_aftershock_rescue_convoy_2026.html)
 - [raylib_air_traffic_control_2026](games/raylib_air_traffic_control_2026/raylib_air_traffic_control_2026.html)
@@ -22,6 +22,7 @@ Total games: 116
 - [raylib_city_builder_mini_2026](games/raylib_city_builder_mini_2026/raylib_city_builder_mini_2026.html)
 - [raylib_city_crossing_2026](games/raylib_city_crossing_2026/raylib_city_crossing_2026.html)
 - [raylib_clocktower_heist_2026](games/raylib_clocktower_heist_2026/raylib_clocktower_heist_2026.html)
+- [raylib_clockwork_train_heist_2026](games/raylib_clockwork_train_heist_2026/raylib_clockwork_train_heist_2026.html)
 - [raylib_cyber_firewall_breach_2026](games/raylib_cyber_firewall_breach_2026/raylib_cyber_firewall_breach_2026.html)
 - [raylib_deep_sea_salvage_2026](games/raylib_deep_sea_salvage_2026/raylib_deep_sea_salvage_2026.html)
 - [raylib_deep_tunnel_drill_rescue_2026](games/raylib_deep_tunnel_drill_rescue_2026/raylib_deep_tunnel_drill_rescue_2026.html)
@@ -43,6 +44,7 @@ Total games: 116
 - [raylib_gravity_golf_2026](games/raylib_gravity_golf_2026/raylib_gravity_golf_2026.html)
 - [raylib_harbor_defense_2026](games/raylib_harbor_defense_2026/raylib_harbor_defense_2026.html)
 - [raylib_harbor_smuggler_run_2026](games/raylib_harbor_smuggler_run_2026/raylib_harbor_smuggler_run_2026.html)
+- [raylib_haunted_library_puzzle_2026](games/raylib_haunted_library_puzzle_2026/raylib_haunted_library_puzzle_2026.html)
 - [raylib_hospital_triage_2026](games/raylib_hospital_triage_2026/raylib_hospital_triage_2026.html)
 - [raylib_ice_fishing_blitz_2026](games/raylib_ice_fishing_blitz_2026/raylib_ice_fishing_blitz_2026.html)
 - [raylib_icebreaker_convoy_command_2026](games/raylib_icebreaker_convoy_command_2026/raylib_icebreaker_convoy_command_2026.html)
@@ -76,6 +78,7 @@ Total games: 116
 - [raylib_platformer_precision_2026](games/raylib_platformer_precision_2026/raylib_platformer_precision_2026.html)
 - [raylib_port_logistics_empire_2026](games/raylib_port_logistics_empire_2026/raylib_port_logistics_empire_2026.html)
 - [raylib_portal_billiards_2026](games/raylib_portal_billiards_2026/raylib_portal_billiards_2026.html)
+- [raylib_portal_blackout_escape_2026](games/raylib_portal_blackout_escape_2026/raylib_portal_blackout_escape_2026.html)
 - [raylib_post_office_sorter_2026](games/raylib_post_office_sorter_2026/raylib_post_office_sorter_2026.html)
 - [raylib_power_grid_operator_2026](games/raylib_power_grid_operator_2026/raylib_power_grid_operator_2026.html)
 - [raylib_powerline_repair_patrol_2026](games/raylib_powerline_repair_patrol_2026/raylib_powerline_repair_patrol_2026.html)
@@ -103,6 +106,7 @@ Total games: 116
 - [raylib_stealth_heist_2026](games/raylib_stealth_heist_2026/raylib_stealth_heist_2026.html)
 - [raylib_street_basketball_duel_2026](games/raylib_street_basketball_duel_2026/raylib_street_basketball_duel_2026.html)
 - [raylib_submarine_hunter_2026](games/raylib_submarine_hunter_2026/raylib_submarine_hunter_2026.html)
+- [raylib_subway_signal_saboteur_2026](games/raylib_subway_signal_saboteur_2026/raylib_subway_signal_saboteur_2026.html)
 - [raylib_tank_1990](games/raylib_tank_1990/raylib_tank_1990.html)
 - [raylib_temple_relic_run_2026](games/raylib_temple_relic_run_2026/raylib_temple_relic_run_2026.html)
 - [raylib_tetris_meteor_fall_2026](games/raylib_tetris_meteor_fall_2026/raylib_tetris_meteor_fall_2026.html)
