@@ -1,6 +1,6 @@
 # Raylib MoonBit Web Games
 
-Total games: 120
+Total games: 123
 
 - [raylib_aftershock_rescue_convoy_2026](games/raylib_aftershock_rescue_convoy_2026/raylib_aftershock_rescue_convoy_2026.html)
 - [raylib_air_traffic_control_2026](games/raylib_air_traffic_control_2026/raylib_air_traffic_control_2026.html)
@@ -66,6 +66,7 @@ Total games: 120
 - [raylib_neon_2048_storm_2026](games/raylib_neon_2048_storm_2026/raylib_neon_2048_storm_2026.html)
 - [raylib_neon_air_hockey_2026](games/raylib_neon_air_hockey_2026/raylib_neon_air_hockey_2026.html)
 - [raylib_neon_heist_extraction_2026](games/raylib_neon_heist_extraction_2026/raylib_neon_heist_extraction_2026.html)
+- [raylib_neon_rooftop_rush_2026](games/raylib_neon_rooftop_rush_2026/raylib_neon_rooftop_rush_2026.html)
 - [raylib_neon_subway_sprint_2026](games/raylib_neon_subway_sprint_2026/raylib_neon_subway_sprint_2026.html)
 - [raylib_neon_taxi_rush_2026](games/raylib_neon_taxi_rush_2026/raylib_neon_taxi_rush_2026.html)
 - [raylib_ninja_rooftop_chase_2026](games/raylib_ninja_rooftop_chase_2026/raylib_ninja_rooftop_chase_2026.html)
@@ -82,6 +83,7 @@ Total games: 120
 - [raylib_post_office_sorter_2026](games/raylib_post_office_sorter_2026/raylib_post_office_sorter_2026.html)
 - [raylib_power_grid_operator_2026](games/raylib_power_grid_operator_2026/raylib_power_grid_operator_2026.html)
 - [raylib_powerline_repair_patrol_2026](games/raylib_powerline_repair_patrol_2026/raylib_powerline_repair_patrol_2026.html)
+- [raylib_quantum_skater_2026](games/raylib_quantum_skater_2026/raylib_quantum_skater_2026.html)
 - [raylib_radio_station_manager_2026](games/raylib_radio_station_manager_2026/raylib_radio_station_manager_2026.html)
 - [raylib_raft_rapids_escape_2026](games/raylib_raft_rapids_escape_2026/raylib_raft_rapids_escape_2026.html)
 - [raylib_reactor_siege_2026](games/raylib_reactor_siege_2026/raylib_reactor_siege_2026.html)
@@ -101,6 +103,7 @@ Total games: 120
 - [raylib_snake_battle_arena_2026](games/raylib_snake_battle_arena_2026/raylib_snake_battle_arena_2026.html)
 - [raylib_snowboard_slalom_2026](games/raylib_snowboard_slalom_2026/raylib_snowboard_slalom_2026.html)
 - [raylib_sokoban_warehouse_master_2026](games/raylib_sokoban_warehouse_master_2026/raylib_sokoban_warehouse_master_2026.html)
+- [raylib_solar_rail_breaker_2026](games/raylib_solar_rail_breaker_2026/raylib_solar_rail_breaker_2026.html)
 - [raylib_space_trader_2026](games/raylib_space_trader_2026/raylib_space_trader_2026.html)
 - [raylib_spellforge_arena_2026](games/raylib_spellforge_arena_2026/raylib_spellforge_arena_2026.html)
 - [raylib_stealth_heist_2026](games/raylib_stealth_heist_2026/raylib_stealth_heist_2026.html)

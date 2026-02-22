@@ -2,6 +2,6 @@
 
 Generated static site for MoonBit + raylib web builds.
 
-- Total games: 120
+- Total games: 123
 - Entry page: `index.html`
 - Full list: `GAME_LIST.md`
