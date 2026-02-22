@@ -1,7 +1,8 @@
 # Raylib MoonBit Web Games
 
-Total games: 123
+Total games: 126
 
+- [raylib_abyss_signal_runner_2026](games/raylib_abyss_signal_runner_2026/raylib_abyss_signal_runner_2026.html)
 - [raylib_aftershock_rescue_convoy_2026](games/raylib_aftershock_rescue_convoy_2026/raylib_aftershock_rescue_convoy_2026.html)
 - [raylib_air_traffic_control_2026](games/raylib_air_traffic_control_2026/raylib_air_traffic_control_2026.html)
 - [raylib_arcade_factory_defense_2026](games/raylib_arcade_factory_defense_2026/raylib_arcade_factory_defense_2026.html)
@@ -22,6 +23,7 @@ Total games: 123
 - [raylib_city_builder_mini_2026](games/raylib_city_builder_mini_2026/raylib_city_builder_mini_2026.html)
 - [raylib_city_crossing_2026](games/raylib_city_crossing_2026/raylib_city_crossing_2026.html)
 - [raylib_clocktower_heist_2026](games/raylib_clocktower_heist_2026/raylib_clocktower_heist_2026.html)
+- [raylib_clockwork_city_chase_2026](games/raylib_clockwork_city_chase_2026/raylib_clockwork_city_chase_2026.html)
 - [raylib_clockwork_train_heist_2026](games/raylib_clockwork_train_heist_2026/raylib_clockwork_train_heist_2026.html)
 - [raylib_cyber_firewall_breach_2026](games/raylib_cyber_firewall_breach_2026/raylib_cyber_firewall_breach_2026.html)
 - [raylib_deep_sea_salvage_2026](games/raylib_deep_sea_salvage_2026/raylib_deep_sea_salvage_2026.html)
@@ -65,6 +67,7 @@ Total games: 123
 - [raylib_mountain_bike_downhill_2026](games/raylib_mountain_bike_downhill_2026/raylib_mountain_bike_downhill_2026.html)
 - [raylib_neon_2048_storm_2026](games/raylib_neon_2048_storm_2026/raylib_neon_2048_storm_2026.html)
 - [raylib_neon_air_hockey_2026](games/raylib_neon_air_hockey_2026/raylib_neon_air_hockey_2026.html)
+- [raylib_neon_drift_bounty_2026](games/raylib_neon_drift_bounty_2026/raylib_neon_drift_bounty_2026.html)
 - [raylib_neon_heist_extraction_2026](games/raylib_neon_heist_extraction_2026/raylib_neon_heist_extraction_2026.html)
 - [raylib_neon_rooftop_rush_2026](games/raylib_neon_rooftop_rush_2026/raylib_neon_rooftop_rush_2026.html)
 - [raylib_neon_subway_sprint_2026](games/raylib_neon_subway_sprint_2026/raylib_neon_subway_sprint_2026.html)
