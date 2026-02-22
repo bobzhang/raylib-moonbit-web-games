@@ -1,6 +1,6 @@
 # Raylib MoonBit Web Games
 
-Total games: 151
+Total games: 153
 
 - [raylib_abyss_signal_runner_2026](games/raylib_abyss_signal_runner_2026/raylib_abyss_signal_runner_2026.html)
 - [raylib_aftershock_rescue_convoy_2026](games/raylib_aftershock_rescue_convoy_2026/raylib_aftershock_rescue_convoy_2026.html)
@@ -36,6 +36,7 @@ Total games: 151
 - [raylib_desert_train_robbery_2026](games/raylib_desert_train_robbery_2026/raylib_desert_train_robbery_2026.html)
 - [raylib_dice_roguelite_arena_2026](games/raylib_dice_roguelite_arena_2026/raylib_dice_roguelite_arena_2026.html)
 - [raylib_dragon_boat_sprint_2026](games/raylib_dragon_boat_sprint_2026/raylib_dragon_boat_sprint_2026.html)
+- [raylib_dragon_scroll_keeper_2026](games/raylib_dragon_scroll_keeper_2026/raylib_dragon_scroll_keeper_2026.html)
 - [raylib_drift_police_chase_2026](games/raylib_drift_police_chase_2026/raylib_drift_police_chase_2026.html)
 - [raylib_drone_delivery_2026](games/raylib_drone_delivery_2026/raylib_drone_delivery_2026.html)
 - [raylib_drone_show_director_2026](games/raylib_drone_show_director_2026/raylib_drone_show_director_2026.html)
@@ -91,6 +92,7 @@ Total games: 151
 - [raylib_orbital_salvage_ops_2026](games/raylib_orbital_salvage_ops_2026/raylib_orbital_salvage_ops_2026.html)
 - [raylib_orbital_shield_command_2026](games/raylib_orbital_shield_command_2026/raylib_orbital_shield_command_2026.html)
 - [raylib_pac_dash_2026](games/raylib_pac_dash_2026/raylib_pac_dash_2026.html)
+- [raylib_paper_lantern_patrol_2026](games/raylib_paper_lantern_patrol_2026/raylib_paper_lantern_patrol_2026.html)
 - [raylib_peking_opera_duel_2026](games/raylib_peking_opera_duel_2026/raylib_peking_opera_duel_2026.html)
 - [raylib_picross_harbor_2026](games/raylib_picross_harbor_2026/raylib_picross_harbor_2026.html)
 - [raylib_pinball_workshop_2026](games/raylib_pinball_workshop_2026/raylib_pinball_workshop_2026.html)
