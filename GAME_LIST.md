@@ -1,14 +1,16 @@
 # Raylib MoonBit Web Games
 
-Total games: 135
+Total games: 137
 
 - [raylib_abyss_signal_runner_2026](games/raylib_abyss_signal_runner_2026/raylib_abyss_signal_runner_2026.html)
 - [raylib_aftershock_rescue_convoy_2026](games/raylib_aftershock_rescue_convoy_2026/raylib_aftershock_rescue_convoy_2026.html)
 - [raylib_air_traffic_control_2026](games/raylib_air_traffic_control_2026/raylib_air_traffic_control_2026.html)
+- [raylib_ancient_temple_trap_run_2026](games/raylib_ancient_temple_trap_run_2026/raylib_ancient_temple_trap_run_2026.html)
 - [raylib_arcade_factory_defense_2026](games/raylib_arcade_factory_defense_2026/raylib_arcade_factory_defense_2026.html)
 - [raylib_arcade_hacker_infiltration_2026](games/raylib_arcade_hacker_infiltration_2026/raylib_arcade_hacker_infiltration_2026.html)
 - [raylib_archery_tournament_2026](games/raylib_archery_tournament_2026/raylib_archery_tournament_2026.html)
 - [raylib_arctic_outpost_survival_2026](games/raylib_arctic_outpost_survival_2026/raylib_arctic_outpost_survival_2026.html)
+- [raylib_arctic_signal_relay_2026](games/raylib_arctic_signal_relay_2026/raylib_arctic_signal_relay_2026.html)
 - [raylib_asteroid_salvage_2026](games/raylib_asteroid_salvage_2026/raylib_asteroid_salvage_2026.html)
 - [raylib_auto_chess_micro_2026](games/raylib_auto_chess_micro_2026/raylib_auto_chess_micro_2026.html)
 - [raylib_battle_kart_arena_2026](games/raylib_battle_kart_arena_2026/raylib_battle_kart_arena_2026.html)
