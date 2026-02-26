@@ -516,7 +516,7 @@ function updateMemoryViews() {
   HEAPU16 = new Uint16Array(b);
   HEAP32 = new Int32Array(b);
   HEAPU32 = new Uint32Array(b);
-  HEAPF32 = new Float32Array(b);
+  Module['HEAPF32'] = HEAPF32 = new Float32Array(b);
   HEAPF64 = new Float64Array(b);
   HEAP64 = new BigInt64Array(b);
   HEAPU64 = new BigUint64Array(b);
@@ -8958,7 +8958,7 @@ var stringToUTF8Array = (str, heap, outIdx, maxBytesToWrite) => {
   Disabled:3,
   },
   state:0,
-  StackSize:4096,
+  StackSize:10485760,
   currData:null,
   handleSleepReturnValue:0,
   exportCallStack:[],
@@ -9139,6 +9139,115 @@ var stringToUTF8Array = (str, heap, outIdx, maxBytesToWrite) => {
       }),
   };
 
+  var getCFunc = (ident) => {
+      var func = Module['_' + ident]; // closure exported function
+      assert(func, 'Cannot call unknown function ' + ident + ', make sure it is exported');
+      return func;
+    };
+  
+  var writeArrayToMemory = (array, buffer) => {
+      assert(array.length >= 0, 'writeArrayToMemory array must have a length (should be an array or typed array)')
+      HEAP8.set(array, buffer);
+    };
+  
+  
+  
+  
+  
+  
+  
+  
+    /**
+   * @param {string|null=} returnType
+   * @param {Array=} argTypes
+   * @param {Array=} args
+   * @param {Object=} opts
+   */
+  var ccall = (ident, returnType, argTypes, args, opts) => {
+      // For fast lookup of conversion functions
+      var toC = {
+        'string': (str) => {
+          var ret = 0;
+          if (str !== null && str !== undefined && str !== 0) { // null string
+            ret = stringToUTF8OnStack(str);
+          }
+          return ret;
+        },
+        'array': (arr) => {
+          var ret = stackAlloc(arr.length);
+          writeArrayToMemory(arr, ret);
+          return ret;
+        }
+      };
+  
+      function convertReturnValue(ret) {
+        if (returnType === 'string') {
+          return UTF8ToString(ret);
+        }
+        if (returnType === 'boolean') return Boolean(ret);
+        return ret;
+      }
+  
+      var func = getCFunc(ident);
+      var cArgs = [];
+      var stack = 0;
+      assert(returnType !== 'array', 'Return type should not be "array".');
+      if (args) {
+        for (var i = 0; i < args.length; i++) {
+          var converter = toC[argTypes[i]];
+          if (converter) {
+            if (stack === 0) stack = stackSave();
+            cArgs[i] = converter(args[i]);
+          } else {
+            cArgs[i] = args[i];
+          }
+        }
+      }
+      // Data for a previous async operation that was in flight before us.
+      var previousAsync = Asyncify.currData;
+      var ret = func(...cArgs);
+      function onDone(ret) {
+        runtimeKeepalivePop();
+        if (stack !== 0) stackRestore(stack);
+        return convertReturnValue(ret);
+      }
+    var asyncMode = opts?.async;
+  
+      // Keep the runtime alive through all calls. Note that this call might not be
+      // async, but for simplicity we push and pop in all calls.
+      runtimeKeepalivePush();
+      if (Asyncify.currData != previousAsync) {
+        // A change in async operation happened. If there was already an async
+        // operation in flight before us, that is an error: we should not start
+        // another async operation while one is active, and we should not stop one
+        // either. The only valid combination is to have no change in the async
+        // data (so we either had one in flight and left it alone, or we didn't have
+        // one), or to have nothing in flight and to start one.
+        assert(!(previousAsync && Asyncify.currData), 'We cannot start an async operation when one is already in flight');
+        assert(!(previousAsync && !Asyncify.currData), 'We cannot stop an async operation in flight');
+        // This is a new async operation. The wasm is paused and has unwound its stack.
+        // We need to return a Promise that resolves the return value
+        // once the stack is rewound and execution finishes.
+        assert(asyncMode, 'The call to ' + ident + ' is running asynchronously. If this was intended, add the async option to the ccall/cwrap call.');
+        return Asyncify.whenDone().then(onDone);
+      }
+  
+      ret = onDone(ret);
+      // If this is an async ccall, ensure we return a promise
+      if (asyncMode) return Promise.resolve(ret);
+      return ret;
+    };
+
+  
+    /**
+   * @param {string=} returnType
+   * @param {Array=} argTypes
+   * @param {Object=} opts
+   */
+  var cwrap = (ident, returnType, argTypes, opts) => {
+      return (...args) => ccall(ident, returnType, argTypes, args, opts);
+    };
+
   var requestFullscreen = Browser.requestFullscreen;
 
   var FS_createPath = (...args) => FS.createPath(...args);
@@ -9221,6 +9330,8 @@ if (Module['wasmBinary']) wasmBinary = Module['wasmBinary'];
 // Begin runtime exports
   Module['addRunDependency'] = addRunDependency;
   Module['removeRunDependency'] = removeRunDependency;
+  Module['ccall'] = ccall;
+  Module['cwrap'] = cwrap;
   Module['requestFullscreen'] = requestFullscreen;
   Module['FS_preloadFile'] = FS_preloadFile;
   Module['FS_unlink'] = FS_unlink;
@@ -9259,8 +9370,6 @@ if (Module['wasmBinary']) wasmBinary = Module['wasmBinary'];
   'STACK_ALIGN',
   'POINTER_SIZE',
   'ASSERTIONS',
-  'ccall',
-  'cwrap',
   'convertJsFunctionToWasm',
   'getEmptyTableSlot',
   'updateTableMap',
@@ -9276,7 +9385,6 @@ if (Module['wasmBinary']) wasmBinary = Module['wasmBinary'];
   'UTF32ToString',
   'stringToUTF32',
   'lengthBytesUTF32',
-  'writeArrayToMemory',
   'registerKeyEventCallback',
   'registerWheelEventCallback',
   'registerFocusEventCallback',
@@ -9352,7 +9460,6 @@ missingLibrarySymbols.forEach(missingLibrarySymbol)
   'callMain',
   'abort',
   'wasmExports',
-  'HEAPF32',
   'HEAPF64',
   'HEAP8',
   'HEAPU8',
@@ -9424,6 +9531,7 @@ missingLibrarySymbols.forEach(missingLibrarySymbol)
   'UTF16Decoder',
   'stringToNewUTF8',
   'stringToUTF8OnStack',
+  'writeArrayToMemory',
   'JSEvents',
   'specialHTMLTargets',
   'maybeCStringToJsString',
@@ -9643,48 +9751,48 @@ function checkIncomingModuleAPI() {
   ignoredModuleProp('loadSplitModule');
 }
 var ASM_CONSTS = {
-  97936: () => { if (document.fullscreenElement) return 1; },  
- 97982: () => { return document.getElementById('canvas').width; },  
- 98034: () => { return parseInt(document.getElementById('canvas').style.width); },  
- 98102: () => { document.exitFullscreen(); },  
- 98129: () => { setTimeout(function() { Module.requestFullscreen(false, false); }, 100); },  
- 98202: () => { if (document.fullscreenElement) return 1; },  
- 98248: () => { return document.getElementById('canvas').width; },  
- 98300: () => { return screen.width; },  
- 98325: () => { document.exitFullscreen(); },  
- 98352: () => { setTimeout(function() { Module.requestFullscreen(false, true); setTimeout(function() { canvas.style.width="unset"; }, 100); }, 100); },  
- 98485: () => { return window.innerWidth; },  
- 98511: () => { return window.innerHeight; },  
- 98538: () => { if (document.fullscreenElement) return 1; },  
- 98584: () => { return document.getElementById('canvas').width; },  
- 98636: () => { return parseInt(document.getElementById('canvas').style.width); },  
- 98704: () => { if (document.fullscreenElement) return 1; },  
- 98750: () => { return document.getElementById('canvas').width; },  
- 98802: () => { return screen.width; },  
- 98827: () => { return window.innerWidth; },  
- 98853: () => { return window.innerHeight; },  
- 98880: () => { if (document.fullscreenElement) return 1; },  
- 98926: () => { return document.getElementById('canvas').width; },  
- 98978: () => { return screen.width; },  
- 99003: () => { document.exitFullscreen(); },  
- 99030: () => { if (document.fullscreenElement) return 1; },  
- 99076: () => { return document.getElementById('canvas').width; },  
- 99128: () => { return parseInt(document.getElementById('canvas').style.width); },  
- 99196: () => { document.exitFullscreen(); },  
- 99223: ($0) => { document.getElementById('canvas').style.opacity = $0; },  
- 99281: () => { return screen.width; },  
- 99306: () => { return screen.height; },  
- 99332: () => { return window.screenX; },  
- 99359: () => { return window.screenY; },  
- 99386: ($0) => { navigator.clipboard.writeText(UTF8ToString($0)); },  
- 99439: ($0) => { document.getElementById("canvas").style.cursor = UTF8ToString($0); },  
- 99510: () => { document.getElementById('canvas').style.cursor = 'none'; },  
- 99567: ($0, $1, $2, $3) => { try { navigator.getGamepads()[$0].vibrationActuator.playEffect('dual-rumble', { startDelay: 0, duration: $3, weakMagnitude: $1, strongMagnitude: $2 }); } catch (e) { try { navigator.getGamepads()[$0].hapticActuators[0].pulse($2, $3); } catch (e) { } } },  
- 99823: ($0) => { document.getElementById('canvas').style.cursor = UTF8ToString($0); },  
- 99894: () => { if (document.fullscreenElement) return 1; },  
- 99940: () => { return window.innerWidth; },  
- 99966: () => { return window.innerHeight; },  
- 99993: () => { if (document.pointerLockElement) return 1; }
+  98096: () => { if (document.fullscreenElement) return 1; },  
+ 98142: () => { return document.getElementById('canvas').width; },  
+ 98194: () => { return parseInt(document.getElementById('canvas').style.width); },  
+ 98262: () => { document.exitFullscreen(); },  
+ 98289: () => { setTimeout(function() { Module.requestFullscreen(false, false); }, 100); },  
+ 98362: () => { if (document.fullscreenElement) return 1; },  
+ 98408: () => { return document.getElementById('canvas').width; },  
+ 98460: () => { return screen.width; },  
+ 98485: () => { document.exitFullscreen(); },  
+ 98512: () => { setTimeout(function() { Module.requestFullscreen(false, true); setTimeout(function() { canvas.style.width="unset"; }, 100); }, 100); },  
+ 98645: () => { return window.innerWidth; },  
+ 98671: () => { return window.innerHeight; },  
+ 98698: () => { if (document.fullscreenElement) return 1; },  
+ 98744: () => { return document.getElementById('canvas').width; },  
+ 98796: () => { return parseInt(document.getElementById('canvas').style.width); },  
+ 98864: () => { if (document.fullscreenElement) return 1; },  
+ 98910: () => { return document.getElementById('canvas').width; },  
+ 98962: () => { return screen.width; },  
+ 98987: () => { return window.innerWidth; },  
+ 99013: () => { return window.innerHeight; },  
+ 99040: () => { if (document.fullscreenElement) return 1; },  
+ 99086: () => { return document.getElementById('canvas').width; },  
+ 99138: () => { return screen.width; },  
+ 99163: () => { document.exitFullscreen(); },  
+ 99190: () => { if (document.fullscreenElement) return 1; },  
+ 99236: () => { return document.getElementById('canvas').width; },  
+ 99288: () => { return parseInt(document.getElementById('canvas').style.width); },  
+ 99356: () => { document.exitFullscreen(); },  
+ 99383: ($0) => { document.getElementById('canvas').style.opacity = $0; },  
+ 99441: () => { return screen.width; },  
+ 99466: () => { return screen.height; },  
+ 99492: () => { return window.screenX; },  
+ 99519: () => { return window.screenY; },  
+ 99546: ($0) => { navigator.clipboard.writeText(UTF8ToString($0)); },  
+ 99599: ($0) => { document.getElementById("canvas").style.cursor = UTF8ToString($0); },  
+ 99670: () => { document.getElementById('canvas').style.cursor = 'none'; },  
+ 99727: ($0, $1, $2, $3) => { try { navigator.getGamepads()[$0].vibrationActuator.playEffect('dual-rumble', { startDelay: 0, duration: $3, weakMagnitude: $1, strongMagnitude: $2 }); } catch (e) { try { navigator.getGamepads()[$0].hapticActuators[0].pulse($2, $3); } catch (e) { } } },  
+ 99983: ($0) => { document.getElementById('canvas').style.cursor = UTF8ToString($0); },  
+ 100054: () => { if (document.fullscreenElement) return 1; },  
+ 100100: () => { return window.innerWidth; },  
+ 100126: () => { return window.innerHeight; },  
+ 100153: () => { if (document.pointerLockElement) return 1; }
 };
 
 // Imports from the Wasm binary.

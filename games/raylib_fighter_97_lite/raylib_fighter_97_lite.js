@@ -516,7 +516,7 @@ function updateMemoryViews() {
   HEAPU16 = new Uint16Array(b);
   HEAP32 = new Int32Array(b);
   HEAPU32 = new Uint32Array(b);
-  HEAPF32 = new Float32Array(b);
+  Module['HEAPF32'] = HEAPF32 = new Float32Array(b);
   HEAPF64 = new Float64Array(b);
   HEAP64 = new BigInt64Array(b);
   HEAPU64 = new BigUint64Array(b);
@@ -8958,7 +8958,7 @@ var stringToUTF8Array = (str, heap, outIdx, maxBytesToWrite) => {
   Disabled:3,
   },
   state:0,
-  StackSize:4096,
+  StackSize:10485760,
   currData:null,
   handleSleepReturnValue:0,
   exportCallStack:[],
@@ -9139,6 +9139,115 @@ var stringToUTF8Array = (str, heap, outIdx, maxBytesToWrite) => {
       }),
   };
 
+  var getCFunc = (ident) => {
+      var func = Module['_' + ident]; // closure exported function
+      assert(func, 'Cannot call unknown function ' + ident + ', make sure it is exported');
+      return func;
+    };
+  
+  var writeArrayToMemory = (array, buffer) => {
+      assert(array.length >= 0, 'writeArrayToMemory array must have a length (should be an array or typed array)')
+      HEAP8.set(array, buffer);
+    };
+  
+  
+  
+  
+  
+  
+  
+  
+    /**
+   * @param {string|null=} returnType
+   * @param {Array=} argTypes
+   * @param {Array=} args
+   * @param {Object=} opts
+   */
+  var ccall = (ident, returnType, argTypes, args, opts) => {
+      // For fast lookup of conversion functions
+      var toC = {
+        'string': (str) => {
+          var ret = 0;
+          if (str !== null && str !== undefined && str !== 0) { // null string
+            ret = stringToUTF8OnStack(str);
+          }
+          return ret;
+        },
+        'array': (arr) => {
+          var ret = stackAlloc(arr.length);
+          writeArrayToMemory(arr, ret);
+          return ret;
+        }
+      };
+  
+      function convertReturnValue(ret) {
+        if (returnType === 'string') {
+          return UTF8ToString(ret);
+        }
+        if (returnType === 'boolean') return Boolean(ret);
+        return ret;
+      }
+  
+      var func = getCFunc(ident);
+      var cArgs = [];
+      var stack = 0;
+      assert(returnType !== 'array', 'Return type should not be "array".');
+      if (args) {
+        for (var i = 0; i < args.length; i++) {
+          var converter = toC[argTypes[i]];
+          if (converter) {
+            if (stack === 0) stack = stackSave();
+            cArgs[i] = converter(args[i]);
+          } else {
+            cArgs[i] = args[i];
+          }
+        }
+      }
+      // Data for a previous async operation that was in flight before us.
+      var previousAsync = Asyncify.currData;
+      var ret = func(...cArgs);
+      function onDone(ret) {
+        runtimeKeepalivePop();
+        if (stack !== 0) stackRestore(stack);
+        return convertReturnValue(ret);
+      }
+    var asyncMode = opts?.async;
+  
+      // Keep the runtime alive through all calls. Note that this call might not be
+      // async, but for simplicity we push and pop in all calls.
+      runtimeKeepalivePush();
+      if (Asyncify.currData != previousAsync) {
+        // A change in async operation happened. If there was already an async
+        // operation in flight before us, that is an error: we should not start
+        // another async operation while one is active, and we should not stop one
+        // either. The only valid combination is to have no change in the async
+        // data (so we either had one in flight and left it alone, or we didn't have
+        // one), or to have nothing in flight and to start one.
+        assert(!(previousAsync && Asyncify.currData), 'We cannot start an async operation when one is already in flight');
+        assert(!(previousAsync && !Asyncify.currData), 'We cannot stop an async operation in flight');
+        // This is a new async operation. The wasm is paused and has unwound its stack.
+        // We need to return a Promise that resolves the return value
+        // once the stack is rewound and execution finishes.
+        assert(asyncMode, 'The call to ' + ident + ' is running asynchronously. If this was intended, add the async option to the ccall/cwrap call.');
+        return Asyncify.whenDone().then(onDone);
+      }
+  
+      ret = onDone(ret);
+      // If this is an async ccall, ensure we return a promise
+      if (asyncMode) return Promise.resolve(ret);
+      return ret;
+    };
+
+  
+    /**
+   * @param {string=} returnType
+   * @param {Array=} argTypes
+   * @param {Object=} opts
+   */
+  var cwrap = (ident, returnType, argTypes, opts) => {
+      return (...args) => ccall(ident, returnType, argTypes, args, opts);
+    };
+
   var requestFullscreen = Browser.requestFullscreen;
 
   var FS_createPath = (...args) => FS.createPath(...args);
@@ -9221,6 +9330,8 @@ if (Module['wasmBinary']) wasmBinary = Module['wasmBinary'];
 // Begin runtime exports
   Module['addRunDependency'] = addRunDependency;
   Module['removeRunDependency'] = removeRunDependency;
+  Module['ccall'] = ccall;
+  Module['cwrap'] = cwrap;
   Module['requestFullscreen'] = requestFullscreen;
   Module['FS_preloadFile'] = FS_preloadFile;
   Module['FS_unlink'] = FS_unlink;
@@ -9259,8 +9370,6 @@ if (Module['wasmBinary']) wasmBinary = Module['wasmBinary'];
   'STACK_ALIGN',
   'POINTER_SIZE',
   'ASSERTIONS',
-  'ccall',
-  'cwrap',
   'convertJsFunctionToWasm',
   'getEmptyTableSlot',
   'updateTableMap',
@@ -9276,7 +9385,6 @@ if (Module['wasmBinary']) wasmBinary = Module['wasmBinary'];
   'UTF32ToString',
   'stringToUTF32',
   'lengthBytesUTF32',
-  'writeArrayToMemory',
   'registerKeyEventCallback',
   'registerWheelEventCallback',
   'registerFocusEventCallback',
@@ -9352,7 +9460,6 @@ missingLibrarySymbols.forEach(missingLibrarySymbol)
   'callMain',
   'abort',
   'wasmExports',
-  'HEAPF32',
   'HEAPF64',
   'HEAP8',
   'HEAPU8',
@@ -9424,6 +9531,7 @@ missingLibrarySymbols.forEach(missingLibrarySymbol)
   'UTF16Decoder',
   'stringToNewUTF8',
   'stringToUTF8OnStack',
+  'writeArrayToMemory',
   'JSEvents',
   'specialHTMLTargets',
   'maybeCStringToJsString',
@@ -9643,48 +9751,48 @@ function checkIncomingModuleAPI() {
   ignoredModuleProp('loadSplitModule');
 }
 var ASM_CONSTS = {
-  103456: () => { if (document.fullscreenElement) return 1; },  
- 103502: () => { return document.getElementById('canvas').width; },  
- 103554: () => { return parseInt(document.getElementById('canvas').style.width); },  
- 103622: () => { document.exitFullscreen(); },  
- 103649: () => { setTimeout(function() { Module.requestFullscreen(false, false); }, 100); },  
- 103722: () => { if (document.fullscreenElement) return 1; },  
- 103768: () => { return document.getElementById('canvas').width; },  
- 103820: () => { return screen.width; },  
- 103845: () => { document.exitFullscreen(); },  
- 103872: () => { setTimeout(function() { Module.requestFullscreen(false, true); setTimeout(function() { canvas.style.width="unset"; }, 100); }, 100); },  
- 104005: () => { return window.innerWidth; },  
- 104031: () => { return window.innerHeight; },  
- 104058: () => { if (document.fullscreenElement) return 1; },  
- 104104: () => { return document.getElementById('canvas').width; },  
- 104156: () => { return parseInt(document.getElementById('canvas').style.width); },  
- 104224: () => { if (document.fullscreenElement) return 1; },  
- 104270: () => { return document.getElementById('canvas').width; },  
- 104322: () => { return screen.width; },  
- 104347: () => { return window.innerWidth; },  
- 104373: () => { return window.innerHeight; },  
+  103632: () => { if (document.fullscreenElement) return 1; },  
+ 103678: () => { return document.getElementById('canvas').width; },  
+ 103730: () => { return parseInt(document.getElementById('canvas').style.width); },  
+ 103798: () => { document.exitFullscreen(); },  
+ 103825: () => { setTimeout(function() { Module.requestFullscreen(false, false); }, 100); },  
+ 103898: () => { if (document.fullscreenElement) return 1; },  
+ 103944: () => { return document.getElementById('canvas').width; },  
+ 103996: () => { return screen.width; },  
+ 104021: () => { document.exitFullscreen(); },  
+ 104048: () => { setTimeout(function() { Module.requestFullscreen(false, true); setTimeout(function() { canvas.style.width="unset"; }, 100); }, 100); },  
+ 104181: () => { return window.innerWidth; },  
+ 104207: () => { return window.innerHeight; },  
+ 104234: () => { if (document.fullscreenElement) return 1; },  
+ 104280: () => { return document.getElementById('canvas').width; },  
+ 104332: () => { return parseInt(document.getElementById('canvas').style.width); },  
  104400: () => { if (document.fullscreenElement) return 1; },  
  104446: () => { return document.getElementById('canvas').width; },  
  104498: () => { return screen.width; },  
- 104523: () => { document.exitFullscreen(); },  
- 104550: () => { if (document.fullscreenElement) return 1; },  
- 104596: () => { return document.getElementById('canvas').width; },  
- 104648: () => { return parseInt(document.getElementById('canvas').style.width); },  
- 104716: () => { document.exitFullscreen(); },  
- 104743: ($0) => { document.getElementById('canvas').style.opacity = $0; },  
- 104801: () => { return screen.width; },  
- 104826: () => { return screen.height; },  
- 104852: () => { return window.screenX; },  
- 104879: () => { return window.screenY; },  
- 104906: ($0) => { navigator.clipboard.writeText(UTF8ToString($0)); },  
- 104959: ($0) => { document.getElementById("canvas").style.cursor = UTF8ToString($0); },  
- 105030: () => { document.getElementById('canvas').style.cursor = 'none'; },  
- 105087: ($0, $1, $2, $3) => { try { navigator.getGamepads()[$0].vibrationActuator.playEffect('dual-rumble', { startDelay: 0, duration: $3, weakMagnitude: $1, strongMagnitude: $2 }); } catch (e) { try { navigator.getGamepads()[$0].hapticActuators[0].pulse($2, $3); } catch (e) { } } },  
- 105343: ($0) => { document.getElementById('canvas').style.cursor = UTF8ToString($0); },  
- 105414: () => { if (document.fullscreenElement) return 1; },  
- 105460: () => { return window.innerWidth; },  
- 105486: () => { return window.innerHeight; },  
- 105513: () => { if (document.pointerLockElement) return 1; }
+ 104523: () => { return window.innerWidth; },  
+ 104549: () => { return window.innerHeight; },  
+ 104576: () => { if (document.fullscreenElement) return 1; },  
+ 104622: () => { return document.getElementById('canvas').width; },  
+ 104674: () => { return screen.width; },  
+ 104699: () => { document.exitFullscreen(); },  
+ 104726: () => { if (document.fullscreenElement) return 1; },  
+ 104772: () => { return document.getElementById('canvas').width; },  
+ 104824: () => { return parseInt(document.getElementById('canvas').style.width); },  
+ 104892: () => { document.exitFullscreen(); },  
+ 104919: ($0) => { document.getElementById('canvas').style.opacity = $0; },  
+ 104977: () => { return screen.width; },  
+ 105002: () => { return screen.height; },  
+ 105028: () => { return window.screenX; },  
+ 105055: () => { return window.screenY; },  
+ 105082: ($0) => { navigator.clipboard.writeText(UTF8ToString($0)); },  
+ 105135: ($0) => { document.getElementById("canvas").style.cursor = UTF8ToString($0); },  
+ 105206: () => { document.getElementById('canvas').style.cursor = 'none'; },  
+ 105263: ($0, $1, $2, $3) => { try { navigator.getGamepads()[$0].vibrationActuator.playEffect('dual-rumble', { startDelay: 0, duration: $3, weakMagnitude: $1, strongMagnitude: $2 }); } catch (e) { try { navigator.getGamepads()[$0].hapticActuators[0].pulse($2, $3); } catch (e) { } } },  
+ 105519: ($0) => { document.getElementById('canvas').style.cursor = UTF8ToString($0); },  
+ 105590: () => { if (document.fullscreenElement) return 1; },  
+ 105636: () => { return window.innerWidth; },  
+ 105662: () => { return window.innerHeight; },  
+ 105689: () => { if (document.pointerLockElement) return 1; }
 };
 
 // Imports from the Wasm binary.
@@ -9705,8 +9813,8 @@ var _emscripten_stack_get_free = makeInvalidEarlyAccess('_emscripten_stack_get_f
 var __emscripten_stack_restore = makeInvalidEarlyAccess('__emscripten_stack_restore');
 var __emscripten_stack_alloc = makeInvalidEarlyAccess('__emscripten_stack_alloc');
 var _emscripten_stack_get_current = makeInvalidEarlyAccess('_emscripten_stack_get_current');
-var dynCall_ii = makeInvalidEarlyAccess('dynCall_ii');
 var dynCall_iii = makeInvalidEarlyAccess('dynCall_iii');
+var dynCall_ii = makeInvalidEarlyAccess('dynCall_ii');
 var dynCall_iiiii = makeInvalidEarlyAccess('dynCall_iiiii');
 var dynCall_vii = makeInvalidEarlyAccess('dynCall_vii');
 var dynCall_viii = makeInvalidEarlyAccess('dynCall_viii');
@@ -9759,8 +9867,8 @@ function assignWasmExports(wasmExports) {
   assert(typeof wasmExports['_emscripten_stack_restore'] != 'undefined', 'missing Wasm export: _emscripten_stack_restore');
   assert(typeof wasmExports['_emscripten_stack_alloc'] != 'undefined', 'missing Wasm export: _emscripten_stack_alloc');
   assert(typeof wasmExports['emscripten_stack_get_current'] != 'undefined', 'missing Wasm export: emscripten_stack_get_current');
-  assert(typeof wasmExports['dynCall_ii'] != 'undefined', 'missing Wasm export: dynCall_ii');
   assert(typeof wasmExports['dynCall_iii'] != 'undefined', 'missing Wasm export: dynCall_iii');
+  assert(typeof wasmExports['dynCall_ii'] != 'undefined', 'missing Wasm export: dynCall_ii');
   assert(typeof wasmExports['dynCall_iiiii'] != 'undefined', 'missing Wasm export: dynCall_iiiii');
   assert(typeof wasmExports['dynCall_vii'] != 'undefined', 'missing Wasm export: dynCall_vii');
   assert(typeof wasmExports['dynCall_viii'] != 'undefined', 'missing Wasm export: dynCall_viii');
@@ -9810,8 +9918,8 @@ function assignWasmExports(wasmExports) {
   __emscripten_stack_restore = wasmExports['_emscripten_stack_restore'];
   __emscripten_stack_alloc = wasmExports['_emscripten_stack_alloc'];
   _emscripten_stack_get_current = wasmExports['emscripten_stack_get_current'];
-  dynCall_ii = dynCalls['ii'] = createExportWrapper('dynCall_ii', 2);
   dynCall_iii = dynCalls['iii'] = createExportWrapper('dynCall_iii', 3);
+  dynCall_ii = dynCalls['ii'] = createExportWrapper('dynCall_ii', 2);
   dynCall_iiiii = dynCalls['iiiii'] = createExportWrapper('dynCall_iiiii', 5);
   dynCall_vii = dynCalls['vii'] = createExportWrapper('dynCall_vii', 3);
   dynCall_viii = dynCalls['viii'] = createExportWrapper('dynCall_viii', 4);
